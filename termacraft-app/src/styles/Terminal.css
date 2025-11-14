@@ -1,0 +1,224 @@
+.terminal-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid;
+}
+
+.terminal-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-top: 1px solid;
+}
+
+.terminal-prompt {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: inherit;
+}
+
+.output-line {
+  margin: 4px 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.command-line {
+  display: flex;
+  margin: 8px 0;
+}
+
+.command-prompt {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.command-text {
+  flex: 1;
+}
+
+/* Custom animations */
+.cat-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 0;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.speech-bubble {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 2px solid;
+  max-width: 80%;
+  animation: popIn 0.3s ease-out;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid;
+}
+
+.cat-sprite {
+  width: 100px;
+  height: auto;
+  margin-left: 20px;
+  animation: slideUp 0.4s ease-out;
+}
+
+.ls-animation {
+  position: relative;
+  margin: 20px 0;
+}
+
+.magnifying-glass {
+  width: 80px;
+  height: auto;
+  position: absolute;
+  animation: scan 1.5s ease-in-out;
+  z-index: 10;
+}
+
+.ls-content {
+  opacity: 0;
+  animation: reveal 1.5s ease-in forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  0% {
+    left: -100px;
+    top: 0;
+  }
+  50% {
+    left: 50%;
+    top: 10px;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Scrollbar styling */
+.terminal-output::-webkit-scrollbar {
+  width: 10px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

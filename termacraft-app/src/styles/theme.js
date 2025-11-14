@@ -1,0 +1,48 @@
+// Tokyo Night color schemes
+export const tokyoNightStorm = {
+  background: '#24283b',
+  foreground: '#c0caf5',
+  selection: '#364a82',
+  comment: '#565f89',
+  cyan: '#7dcfff',
+  green: '#9ece6a',
+  orange: '#ff9e64',
+  pink: '#bb9af7',
+  purple: '#9d7cd8',
+  red: '#f7768e',
+  yellow: '#e0af68',
+  black: '#1a1b26',
+  brightBlack: '#414868',
+  brightBlue: '#7aa2f7',
+  brightCyan: '#b4f9f8',
+  brightGreen: '#73daca',
+  brightPurple: '#bb9af7',
+  brightRed: '#ff7a93',
+  brightWhite: '#c0caf5',
+  brightYellow: '#ff9e64',
+};
+
+export const tokyoNightDay = {
+  background: '#d5d6db',
+  foreground: '#565a6e',
+  selection: '#b6bcca',
+  comment: '#9699a3',
+  cyan: '#387068',
+  green: '#485e30',
+  orange: '#965027',
+  pink: '#7847bd',
+  purple: '#5a4a78',
+  red: '#8c4351',
+  yellow: '#8f5e15',
+  black: '#e9e9ed',
+  brightBlack: '#a8aecb',
+  brightBlue: '#2e7de9',
+  brightCyan: '#3e6968',
+  brightGreen: '#587539',
+  brightPurple: '#7847bd',
+  brightRed: '#f52a65',
+  brightWhite: '#3760bf',
+  brightYellow: '#8c6c3e',
+};
+
+export const getTheme = (isDarkMode) => isDarkMode ? tokyoNightStorm : tokyoNightDay;
