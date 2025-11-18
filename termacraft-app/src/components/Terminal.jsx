@@ -104,7 +104,7 @@ const Terminal = () => {
   const handleLs = (args) => {
     const path = args[0] || currentPath;
     try {
-      const dirContent = fileSystem.list(path);
+      const dirContent = fileSystem.listDirectory(path);
       const entries = Array.from(dirContent.keys());
 
       setOutputs(prev => [
@@ -112,7 +112,7 @@ const Terminal = () => {
         {
           type: 'ls',
           entries: entries,
-          content: entries.join('\n')
+          content: entries.length > 0 ? entries.join('\n') : ''
         }
       ]);
     } catch (err) {
@@ -207,7 +207,7 @@ const Terminal = () => {
 
     try {
       // Check if directory exists
-      fileSystem.list(newPath);
+      fileSystem.listDirectory(newPath);
       setCurrentPath(newPath);
     } catch (err) {
       setOutputs(prev => [
